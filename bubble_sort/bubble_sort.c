@@ -2,6 +2,7 @@
 
 void sorting_with_forLoop(int arr[], int arrLenght);
 void sorting_with_whileLoop(int arr[], int arrLenght);
+void recursive_bubble_sort(int arr[], int arrLenght);
 
 int main(int argc, char *argv[]) {
 
@@ -10,9 +11,15 @@ int main(int argc, char *argv[]) {
 
   sorting_with_forLoop(arr, arrLenght);
   sorting_with_whileLoop(arr, arrLenght);
+  recursive_bubble_sort(arr, arrLenght);
 
   //Checking array length;
-  //printf("%d", arrLenght);
+  printf("%d", arrLenght);
+
+  //Printing out the array;
+  for (int i = 0; i < arrLenght; i++)
+    printf("%d ", arr[i]);
+
   return 0;
 };
 
@@ -20,16 +27,14 @@ int main(int argc, char *argv[]) {
 void sorting_with_forLoop(int arr[], int arrLenght) {
 
   for (int i = 0; i < arrLenght; i++) {
-    for (int j = i + 1; j < arrLenght; j++) {
-      if (arr[i] > arr[j]) {
-        int curr = arr[i];
-        arr[i] = arr[j];
-        arr[j] = curr;
+    for (int j = 0; j < arrLenght - 1 - i; j++) {
+      if (arr[j] < arr[j + 1]) {
+        int curr = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = curr;
       }
     }
 
-    //Printing the array;
-    //printf("%d\n", arr[i]);
   }
 };
 
@@ -52,6 +57,25 @@ void sorting_with_whileLoop(int arr[], int arrLenght) {
     i++;
   }
 
-  for (i = 0; i < arrLenght; i++)
-    printf("%d ", arr[i]);
+};
+
+//Sorting the array recursively
+void recursive_bubble_sort(int arr[], int arrLenght) {
+
+  if (arrLenght == 1) {
+    return;
+  }
+
+  int i = 0;
+  while (i < arrLenght - 1) {
+    if (arr[i] < arr[i + 1]) {
+      int curr = arr[i];
+      arr[i] = arr[i + 1];
+      arr[i + 1] = curr;
+    };
+    i++;
+  };
+
+  arrLenght--;
+  recursive_bubble_sort(arr, arrLenght);
 };
