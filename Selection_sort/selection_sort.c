@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
   //sort_selectively(arr, arr_size);
   sort_with_while(arr, arr_size);
 
-
+  //Print out the array
   for(int u = 0; u < arr_size; u++)
     printf("%d ", arr[u]);
 
