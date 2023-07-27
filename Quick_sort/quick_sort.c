@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
 
 //Sorting the elements quickly;
 void sort_quick(int a[], int start, int end) {
-  if (start < end) {
+ if (start < end) {
     int partition = sort_partition(a, start, end);
     sort_quick(a, start, (partition - 1));
     sort_quick(a, (partition + 1), end );
