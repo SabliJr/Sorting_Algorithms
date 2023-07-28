@@ -28,19 +28,21 @@ void quick_sort(int a[], int l, int r) {
 
 int partition(int a[], int l, int r) {
   int povit = a[l];
-  int p_index = r;
+  int p_index = l + 1;
 
-  int j = l;
+  int j = l + 1;
   while (j < r) {
     if(a[j] < povit) {
+      if (p_index != j) {
       swap_ele(&a[j], &a[p_index]);
+      }
       p_index++;
     };
     j++;
   }
 
-  swap_ele(&a[l], &a[p_index]);
-  return p_index;
+  swap_ele(&a[p_index - 1], &a[l]);
+  return (p_index - 1);
 };
 
 void swap_ele(int *x, int *y) {
