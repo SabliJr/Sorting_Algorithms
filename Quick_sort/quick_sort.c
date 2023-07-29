@@ -31,11 +31,14 @@ int sort_partition(int arr[], int s, int e) {
   int povit = arr[e];
   int p_index = s;
 
-  for(int j = s; j < e; j++) {
-    if(arr[j] < povit) {
+  int j = s;
+  while (j < e) {
+    if(arr[j] < povit ) {
       swap_func(&arr[j], &arr[p_index]);
       p_index++;
     };
+
+    j++;
   };
 
   swap_func(&arr[e], &arr[p_index]);
