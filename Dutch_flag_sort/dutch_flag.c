@@ -23,15 +23,11 @@ void dotch_flag_sort(int a[], int len) {
 
   while (middle <= end) {
     if(a[middle] == 0) {
-      swap_ele(&a[start], &a[middle]);
-
-      start++;
-      middle++;
+      swap_ele(&a[start++], &a[middle++]);
     } else if (a[middle] == 1) {
       middle++;
     } else {
-      swap_ele(&a[middle], &a[end]);
-      end--;
+      swap_ele(&a[middle], &a[end--]);
     };
   };
 };
