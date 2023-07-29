@@ -26,23 +26,21 @@ void quick_sort(int a[], int l, int r) {
   };
 };
 
-int partition(int a[], int l, int r) {
-  int povit = a[l];
-  int p_index = l + 1;
+//Positioning the partition;
+int partition(int a[], int lo, int hi) {
+  int pivot = a[lo];
+  int k = hi;
+  int j = hi;
 
-  int j = l + 1;
-  while (j < r) {
-    if(a[j] < povit) {
-      if (p_index != j) {
-      swap_ele(&a[j], &a[p_index]);
-      }
-      p_index++;
-    };
-    j++;
-  }
+  while (j > lo) {
+    if(a[j] > pivot) {
+      swap_ele(&a[j], &a[k--]);
+    }
+    j--;
+  };
 
-  swap_ele(&a[p_index - 1], &a[l]);
-  return (p_index - 1);
+  swap_ele(&a[lo], &a[k]);
+  return k;
 };
 
 void swap_ele(int *x, int *y) {
